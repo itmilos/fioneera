@@ -2,6 +2,7 @@
   "name": "fioneera",
   "version": "0.0.0",
   "scripts": {
+   "buildConfig":"webpack --entry ./src/luigi-config/luigi-config.es6.js --output-path ./src/assets --output-filename luigi-config.js --mode production",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -18,8 +19,14 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+    "@luigi-project/client": "^1.25.1",
+    "@luigi-project/core": "^1.25.1",
+    "@sap-theming/theming-base-content": "^11.1.48",
+    "fundamental-styles": "^0.26.4",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
