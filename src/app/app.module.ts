@@ -6,6 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FinanceComponent } from './finance/finance.component';
 import { InsuranceComponent } from './insurance/insurance.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { ThemingService, ThemingModule } from '@fundamental-ngx/core/theming';
+import {FundamentalNgxCoreModule, WizardService} from "@fundamental-ngx/core";
 
 @NgModule({
   declarations: [
@@ -16,9 +20,17 @@ import { InsuranceComponent } from './insurance/insurance.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule,
+    FundamentalNgxCoreModule,
   ],
-  providers: [],
+  providers: [WizardService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+
+constructor(themingService: ThemingService) {
+themingService.init();
+}
+}

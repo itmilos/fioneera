@@ -1,5 +1,5 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
-import {addContextUpdateListener, addInitListener} from "@luigi-project/client";
+import {Component} from '@angular/core';
+import {MessageToastService} from "@fundamental-ngx/core";
 
 @Component({
   selector: 'app-welcome',
@@ -7,24 +7,15 @@ import {addContextUpdateListener, addInitListener} from "@luigi-project/client";
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
-  public message: string | undefined;
 
-  constructor(private ref: ChangeDetectorRef) {}
+  constructor(public infoMsg: MessageToastService) {
+  }
 
-  ngOnInit() {
-    addInitListener(initialContext => {
-      this.message = 'Luigi Client initialized.';
-      // @ts-ignore
-      if (!this.ref['destroyed']) {
-        this.ref.detectChanges();
-      }
-    });
-    addContextUpdateListener(updatedContext => {
-      this.message = 'Luigi Client updated.';
-      // @ts-ignore
-      if (!this.ref['destroyed']) {
-        this.ref.detectChanges();
-      }
-    });
+  ngOnInit(): void {
+    this.infoMsg.open('Welcome to Fioneera App!');
+
+    setTimeout(() => {
+      this.infoMsg.hideAll()
+    }, 2500);
   }
 }

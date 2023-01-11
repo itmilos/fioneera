@@ -8,19 +8,34 @@ Luigi.setConfig({
         viewUrl: '/angular.html#/welcome',
         children: [
           {
+            icon: 'area-chart',
             pathSegment: 'finance',
-            label: 'Section one',
-            viewUrl: '/angular.html#/finance'
+            label: 'Finance',
+            viewUrl: '/angular.html#/finance',
           },
           {
+            icon: 'sales-order-item',
             pathSegment: 'insurance',
-            label: 'Section two',
+            label: 'Insurance',
             viewUrl: '/angular.html#/insurance'
-          }
-        ]
+          },
+
+        ],
+
       }
-    ]
+    ],
+    productSwitcher: {
+      items: [{
+        icon: 'https://www.sapfioneer.com/wp-content/uploads/2021/05/logo.svg',
+        label: 'SAP Fioneer',
+        externalLink: {
+          url: 'https://www.sapfioneer.com/',
+          sameWindow: true
+        }
+      }]
+    }
   },
+
   routing: {
     /**
      * Development:
@@ -33,7 +48,11 @@ Luigi.setConfig({
     header: {
       title: 'Fioneera',
     },
-    responsiveNavigation: 'simpleMobileOnly'
+    responsiveNavigation: 'semiCollapsible',
+    burgerTooltip: {
+      navExpanded: 'Collapse navigation',
+      navCollapsed: 'Expand navigation'
+    },
   }
 });
 // // You can now use ES6 syntax here
